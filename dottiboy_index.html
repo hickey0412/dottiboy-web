@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>どっちぼーい Web版</title>
+    <link rel="stylesheet" href="dottiboy_style.css">
+</head>
+<body>
+
+    <div id="bg-image"></div>
+
+    <div id="setup-overlay">
+        <div id="setup-box">
+            <h2>ゲーム設定</h2>
+            
+            <div class="input-group">
+                <label>初期チップ枚数:</label>
+                <input type="number" id="init-chips" value="100" min="10">
+            </div>
+
+            <div class="input-group">
+                <label>質問カテゴリ:</label>
+                <select id="category-select" style="width:100%; padding:8px; font-size:1em;">
+                    </select>
+            </div>
+            <div class="input-group">
+                <label>プレイヤー名:</label>
+                <div id="player-input-list">
+                    <input type="text" class="player-name-input" placeholder="プレイヤー1" value="プレイヤー1">
+                    <input type="text" class="player-name-input" placeholder="プレイヤー2" value="プレイヤー2">
+                    <input type="text" class="player-name-input" placeholder="プレイヤー3" value="プレイヤー3">
+                </div>
+                <button id="add-player-btn">+ 人数を増やす</button>
+            </div>
+            <button id="start-game-btn">ゲーム開始！</button>
+        </div>
+    </div>
+
+    <div id="history-overlay" style="display:none;">
+        <div id="history-box">
+            <h2 id="history-title">プレイヤー履歴</h2>
+            <div class="history-content">
+                <table id="history-table">
+                    <thead>
+                        <tr>
+                            <th>回</th>
+                            <th>内容</th>
+                            <th>変動</th>
+                            <th>残高</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-list-body"></tbody>
+                </table>
+            </div>
+            <button id="close-history-btn">閉じる</button>
+        </div>
+    </div>
+
+    <h1>どっちぼーい Web版</h1>
+    
+    <div id="main-layout">
+        <div id="game-container">
+            <div id="status-bar">
+                <span id="game-status">準備中...</span>
+            </div>
+            <div id="pyramid-board"></div>
+            <div id="result-row"></div>
+        </div>
+
+        <div id="sidebar">
+            <h3>プレイヤー</h3>
+            <div id="player-list"></div>
+
+            <div id="control-panel">
+                <div id="betting-controls" style="display:none;">
+                    <h3 id="current-better-name" style="margin-top:0;">プレイヤーXさんの予想</h3>
+                    <div class="bet-input-row">
+                        <label>賭けるチップ:</label>
+                        <input type="number" id="bet-amount" value="10" min="1">
+                        <span>枚</span>
+                    </div>
+                    <p class="instruction-small">金額を決めて、<br>左の黒いゴールカードをクリック！</p>
+                </div>
+                
+                <p id="instruction-text">設定を入力してください...</p>
+                <button id="next-round-btn" style="display:none;">次の親へ交代</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dottiboy_question.js"></script>
+    <script src="dottiboy_script.js"></script>
+</body>
+</html>
